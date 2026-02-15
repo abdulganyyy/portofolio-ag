@@ -1,68 +1,176 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import "tailwindcss";
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* -------- THEME TOKENS -------- */
+@layer base {
+	:root {
+		--background: 210 40% 98%;
+		--foreground: 222 47% 11%;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+		--primary: 262 83% 56%;
+		--primary-foreground: 0 0% 100%;
+
+		--secondary: 220 14% 96%;
+		--secondary-foreground: 222 47% 11%;
+
+		--card: 0 0% 100%;
+		--border: 220 13% 91%;
+	}
+
+	.dark {
+		--background: 222 47% 5%;
+		--foreground: 210 40% 98%;
+
+		--primary: 262 83% 66%;
+		--primary-foreground: 0 0% 100%;
+
+		--secondary: 220 20% 12%;
+		--secondary-foreground: 210 40% 98%;
+
+		--card: 222 30% 10%;
+		--border: 220 18% 22%;
+	}
+
+	* {
+		border-color: hsl(var(--border));
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		background: hsl(var(--background));
+		color: hsl(var(--foreground));
+		transition:
+			background-color 300ms,
+			color 300ms;
+	}
+
+	#root {
+		max-width: 100%;
+		margin: 0 auto;
+		padding: 0;
+		text-align: center;
+	}
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* -------- UTILS -------- */
+@layer utilities {
+	.container {
+		margin-inline: auto;
+		padding-inline: 2rem;
+		max-width: 1100px;
+	}
+
+	.text-glow {
+		text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+	}
+
+	.card-hover {
+		@apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+	}
+
+	.gradient-border {
+		@apply relative rounded-md;
+		background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
+		background-clip: padding-box;
+		border: 1px solid transparent;
+	}
+
+	.cosmic-button {
+		@apply px-6 py-2 rounded-full bg-[hsl(var(--primary))] text-[hsl(var(--primary-foreground))] font-medium transition-all duration-300 hover:scale-[1.03] active:scale-95;
+		box-shadow: 0 0 10px rgba(139, 92, 246, 0.35);
+	}
+
+	.star {
+		@apply absolute rounded-full bg-white;
+		box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.4);
+	}
+
+	.meteor {
+		@apply absolute rounded-full bg-gradient-to-r from-white via-white to-transparent;
+		box-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+	}
+
+	.text-gradient {
+		background: linear-gradient(90deg, hsl(var(--primary)), #60a5fa);
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+	}
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+/* -------- ANIMATIONS -------- */
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		transform: translateX(-8px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+@keyframes float {
+	0% {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(-10px);
+	}
+	100% {
+		transform: translateY(0px);
+	}
+}
+@keyframes pulseSubtle {
+	0%,
+	100% {
+		opacity: 0.8;
+	}
+	50% {
+		opacity: 1;
+	}
+}
+@keyframes meteor {
+	0% {
+		transform: translate(0, 0) rotate(215deg);
+		opacity: 0;
+	}
+	10% {
+		opacity: 1;
+	}
+	100% {
+		transform: translate(-600px, 600px) rotate(215deg);
+		opacity: 0;
+	}
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.animate-fade-in {
+	animation: fadeIn 0.6s ease-out forwards;
+}
+.animate-fade-in-delay-1 {
+	animation: fadeIn 0.6s ease-out 0.2s forwards;
+	opacity: 0;
+}
+.animate-fade-in-delay-2 {
+	animation: fadeIn 0.6s ease-out 0.4s forwards;
+	opacity: 0;
+}
+.animate-fade-in-delay-3 {
+	animation: fadeIn 0.6s ease-out 0.6s forwards;
+	opacity: 0;
+}
+.animate-fade-in-delay-4 {
+	animation: fadeIn 0.6s ease-out 0.8s forwards;
+	opacity: 0;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.animate-float {
+	animation: float 6s ease-in-out infinite;
 }
-button:hover {
-  border-color: #646cff;
+.animate-pulse-subtle {
+	animation: pulseSubtle 4s ease-in-out infinite;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.animate-meteor {
+	animation: meteor 3.5s linear infinite;
 }
