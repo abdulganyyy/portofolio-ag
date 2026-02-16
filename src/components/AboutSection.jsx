@@ -47,7 +47,8 @@ export default function AboutSection() {
                 Let’s Work Together
               </a>
               <a
-                href="/cv.pdf"
+                href="/CV_AbdulGany.pdf"
+                download
                 className="px-6 py-2 rounded-full border border-[hsl(var(--primary))] text-[hsl(var(--primary))] hover:bg-[hsl(var(--primary))]/10 transition-colors duration-300 text-center"
               >
                 Download CV

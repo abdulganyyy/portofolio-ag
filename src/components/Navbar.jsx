@@ -29,7 +29,7 @@ export default function Navbar() {
 						className="text-xl font-bold flex items-center gap-2 relative z-10"
 					>
 						<span className="text-gradient">Abdul Gany</span>
-						<span className="hidden sm:inline text-xs px-2 py-1 rounded-full border opacity-80">Front-End</span>
+						{/* <span className="hidden sm:inline text-xs px-2 py-1 rounded-full border opacity-80">Front-End</span> */}
 					</a>
 
 					{/* Desktop */}

@@ -5,7 +5,7 @@ export default function Footer() {
     <footer className="py-12 px-4 bg-[hsl(var(--card))] relative border-t mt-12">
       <div className="container flex flex-wrap justify-between items-center gap-4">
         <p className="text-sm opacity-70">
-          © {new Date().getFullYear()} Alexa Vey. All rights reserved.
+          © {new Date().getFullYear()} Abdul Gany. All rights reserved.
         </p>
 
         <a
