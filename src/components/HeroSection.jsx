@@ -21,8 +21,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="text-lg md:text-xl opacity-80 max-w-xl animate-fade-in-delay-3">
-              Front-End Developer (React/Next.js) yang fokus pada UI rapi, responsif,
-              dan pengalaman pengguna yang jelas.
+              Front-End Developer (React/Next.js) who focuses on neat, responsive UI,
+              and clear user experience.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-2 animate-fade-in-delay-4">

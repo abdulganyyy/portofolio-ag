@@ -27,7 +27,7 @@ export default function AboutSection() {
             </p>
 
             {/* Highlights */}
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm">
+            {/* <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-sm">
               <li className="p-3 rounded-lg border bg-[hsl(var(--card))]/60">
                 ✔ React & Next.js Development
               </li>
@@ -40,7 +40,7 @@ export default function AboutSection() {
               <li className="p-3 rounded-lg border bg-[hsl(var(--card))]/60">
                 ✔ Responsive & Clean Design
               </li>
-            </ul>
+            </ul> */}
 
             <div className="flex flex-col sm:flex-row gap-4 pt-6">
               <a href="#contact" className="cosmic-button text-center">
