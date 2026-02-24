@@ -98,7 +98,7 @@ export default function SkillsSection() {
 			<div className="container mx-auto max-w-5xl">
 				<div className="max-w-2xl mx-auto text-center mb-12">
 					<h2 className="text-3xl md:text-4xl font-bold">
-						Tech <span className="text-[hsl(var(--primary))]">Stack</span>
+						My <span className="text-[hsl(var(--primary))]">Skills</span>
 					</h2>
 					<p className="mt-3 opacity-80">Tools and technologies I use to build responsive interfaces and ship web projects.</p>
 				</div>
