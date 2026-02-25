@@ -7,19 +7,45 @@ export default function ContactSection() {
 	const { toast } = useToast();
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
-	const handleSubmit = (e) => {
-		e.preventDefault();
-		setIsSubmitting(true);
+	const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsSubmitting(true);
 
-		setTimeout(() => {
-			setIsSubmitting(false);
-			toast({
-				title: "Message sent!",
-				description: "Makasih! Aku bakal bales secepatnya 🙂",
-			});
-			e.target.reset();
-		}, 1500);
-	};
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    const response = await fetch("https://formspree.io/f/xdalyjbv", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (response.ok) {
+      toast({
+        title: "Message sent successfully 🚀",
+        description: "Thank you! I'll get back to you as soon as possible.",
+      });
+      form.reset();
+    } else {
+      toast({
+        title: "Something went wrong",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
+  } catch {
+    toast({
+      title: "Network error",
+      description: "Please check your connection and try again.",
+      variant: "destructive",
+    });
+  }
+
+  setIsSubmitting(false);
+};
 
 	return (
 		<section
@@ -97,6 +123,7 @@ export default function ContactSection() {
 								>
 									Your name
 								</label>
+								<input type="hidden" name="_subject" value="New Portfolio Message from Abdul Gany" />
 								<input
 									id="name"
 									name="name"
