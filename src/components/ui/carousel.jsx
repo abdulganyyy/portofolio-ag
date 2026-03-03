@@ -85,7 +85,7 @@ export function CarouselPrevious({ className }) {
 			variant="outline"
 			onClick={ctx.scrollPrev}
 			disabled={!ctx.canPrev}
-			className={cn("h-9 w-9 rounded-full p-0", className)}
+			className={cn("h-9 w-9 rounded-full p-0", "disabled:opacity-40 disabled:cursor-not-allowed", className)}
 			aria-label="Previous"
 		>
 			<ChevronLeft size={18} />
@@ -101,7 +101,7 @@ export function CarouselNext({ className }) {
 			variant="outline"
 			onClick={ctx.scrollNext}
 			disabled={!ctx.canNext}
-			className={cn("h-9 w-9 rounded-full p-0", className)}
+			className={cn("h-9 w-9 rounded-full p-0", "disabled:opacity-40 disabled:cursor-not-allowed", className)}
 			aria-label="Next"
 		>
 			<ChevronRight size={18} />

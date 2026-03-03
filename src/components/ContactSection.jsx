@@ -8,44 +8,44 @@ export default function ContactSection() {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const handleSubmit = async (e) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+		e.preventDefault();
+		setIsSubmitting(true);
 
-  const form = e.target;
-  const formData = new FormData(form);
+		const form = e.target;
+		const formData = new FormData(form);
 
-  try {
-    const response = await fetch("https://formspree.io/f/xdalyjbv", {
-      method: "POST",
-      body: formData,
-      headers: {
-        Accept: "application/json",
-      },
-    });
+		try {
+			const response = await fetch("https://formspree.io/f/xdalyjbv", {
+				method: "POST",
+				body: formData,
+				headers: {
+					Accept: "application/json",
+				},
+			});
 
-    if (response.ok) {
-      toast({
-        title: "Message sent successfully 🚀",
-        description: "Thank you! I'll get back to you as soon as possible.",
-      });
-      form.reset();
-    } else {
-      toast({
-        title: "Something went wrong",
-        description: "Please try again later.",
-        variant: "destructive",
-      });
-    }
-  } catch {
-    toast({
-      title: "Network error",
-      description: "Please check your connection and try again.",
-      variant: "destructive",
-    });
-  }
+			if (response.ok) {
+				toast({
+					title: "Message sent successfully 🚀",
+					description: "Thank you! I'll get back to you as soon as possible.",
+				});
+				form.reset();
+			} else {
+				toast({
+					title: "Something went wrong",
+					description: "Please try again later.",
+					variant: "destructive",
+				});
+			}
+		} catch {
+			toast({
+				title: "Network error",
+				description: "Please check your connection and try again.",
+				variant: "destructive",
+			});
+		}
 
-  setIsSubmitting(false);
-};
+		setIsSubmitting(false);
+	};
 
 	return (
 		<section
@@ -72,7 +72,9 @@ export default function ContactSection() {
 									<div className="text-left">
 										<h4 className="font-medium">Email</h4>
 										<a
-											href="mailto:your.email@gmail.com"
+											href="https://mail.google.com/mail/?view=cm&fs=1&to=abdulgani2211@gmail.com&su=Portfolio%20Inquiry"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="opacity-80 hover:text-[hsl(var(--primary))] transition-colors"
 										>
 											abdulgani2211@gmail.com
@@ -87,7 +89,9 @@ export default function ContactSection() {
 									<div className="text-left">
 										<h4 className="font-medium">Phone</h4>
 										<a
-											href="tel:+620000000000"
+											href="https://wa.me/62881026031419"
+											target="_blank"
+											rel="noopener noreferrer"
 											className="opacity-80 hover:text-[hsl(var(--primary))] transition-colors"
 										>
 											+62 881-0260-31419
@@ -123,7 +127,11 @@ export default function ContactSection() {
 								>
 									Your name
 								</label>
-								<input type="hidden" name="_subject" value="New Portfolio Message from Abdul Gany" />
+								<input
+									type="hidden"
+									name="_subject"
+									value="New Portfolio Message from Abdul Gany"
+								/>
 								<input
 									id="name"
 									name="name"

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
-const categories = ["all", "web", "uiux", "mini"];
+const categories = ["all", "web", "uiux", "apps"];
 
 const projects = [
 	{
@@ -66,7 +66,7 @@ const projects = [
 		description: "A React-based quiz application that fetches trivia questions from the OpenTDB API, featuring customizable quiz settings, countdown timer, and progress tracking with localStorage persistence.",
 		image: "/projects/quiz.png",
 		tags: ["JavaScript", "React", "API"],
-		category: "mini",
+		category: "apps",
 		demoUrl: "https://www.loom.com/share/9162cdf37213430a8e24b6aa7b665744",
 		githubUrl: "https://github.com/abdulganyyy/react-quiz-app.git",
 	},
@@ -160,24 +160,30 @@ export default function ProjectsSection() {
 													{/* Spacer: dorong actions ke bawah */}
 													<div className="mt-auto flex items-center justify-between">
 														<div className="flex gap-3">
-															<a
-																href={p.demoUrl ? p.demoUrl : "/not-found"}
-																target={p.demoUrl ? "_blank" : "_self"}
-																rel="noopener noreferrer"
-																className="opacity-80 hover:opacity-100 transition-opacity"
-																aria-label="Open demo"
-															>
-																<ExternalLink size={20} />
-															</a>
-															<a
-																href={p.githubUrl ? p.githubUrl : "/not-found"}
-																target={p.githubUrl ? "_blank" : "_self"}
-																rel="noopener noreferrer"
-																className="opacity-80 hover:opacity-100 transition-opacity"
-																aria-label="Open github"
-															>
-																<Github size={20} />
-															</a>
+															{p.demoUrl ? (
+																<a
+																	href={p.demoUrl}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	className="opacity-80 hover:opacity-100 transition-opacity"
+																	aria-label="Open demo"
+																>
+																	<ExternalLink size={20} />
+																</a>
+															) : null}
+
+															{p.githubUrl ? (
+																<a
+																	href={p.githubUrl}
+																	target="_blank"
+																	rel="noopener noreferrer"
+																	className="opacity-80 hover:opacity-100 transition-opacity"
+																	aria-label="Open github"
+																>
+																	<Github size={20} />
+																</a>
+															) : null}
+															{!p.demoUrl && !p.githubUrl ? <Badge className="opacity-80">Private</Badge> : null}
 														</div>
 													</div>
 												</CardContent>

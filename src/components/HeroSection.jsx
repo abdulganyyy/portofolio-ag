@@ -4,7 +4,7 @@ export default function HeroSection() {
 	return (
 		<section
 			id="hero"
-			className="relative min-h-screen flex items-center px-4"
+			className="relative min-h-screen flex items-center px-4 pt-24 md:pt-4"
 		>
 			<div className="container max-w-5xl mx-auto z-10 mt-10">
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-2 items-center">
@@ -76,7 +76,7 @@ export default function HeroSection() {
 					<div className="flex justify-center md:justify-end">
 						<div className="relative w-56 h-56 md:w-72 md:h-72 rounded-3xl overflow-hidden border bg-[hsl(var(--card))] shadow-lg animate-float">
 							<img
-								src="/profilebgremove.png"
+								src="/profile1.jpg"
 								alt="Profile"
 								className="w-full h-full object-cover"
 							/>
